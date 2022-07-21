@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BMI Calculator</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background-color: cornflowerblue;
+                background-image: linear-gradient(45deg, rgb(86, 86, 226), rgb(158, 13, 13));
+                background-repeat: no-repeat;
+                height: 100%;
+            }
+            #main-cont{
+                width: 400px;
+                height: 500px;
+                border: none;
+                box-shadow: 0px 0px 30px rgb(51, 50, 48);
+                border-radius: 5px;
+                margin: auto;
+                background-color: rgb(238, 236, 236);
+                margin-top: -15px;
+                padding-top: 2px;
+            }
+            input, textarea{
+                margin: 7px;
+                position: relative;
+                left: 12px;
+                width: 350px;
+                height: 30px;
+                font-size: 20px;
+                border: none;
+                box-shadow: 0px 0px 4px grey;
+                border-radius: 3px;
+                padding-left: 8px;
+            }
+            #result{
+                height: 55px;
+                font-size: 2em;
+            }
+            textarea{
+                height: 120px;
+                font-size: 1.2em;
+            }
+            button{
+                width: 358px;
+                height: 35px;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                font-size: 1.2em;
+                font-weight: bold;
+                background-color: rgb(3, 85, 180);
+                border: none;
+                border-radius: 3px;
+                position: relative;
+                left: -2px;
+                box-shadow: 0px 0px 3px grey;
+                padding-top: 5px;
+                margin-top: 10px;
+                color: whitesmoke;
+            }
+            button:hover{
+                cursor: pointer;
+                background-color: rgb(119, 175, 240);
+                color: rgb(4, 57, 117);
+            }
+            #credit{
+                width: 400px;
+                height: 35px;
+                background-color: rgb(80, 79, 79);
+                position:relative;
+                top: 45px;
+                padding-top: 5px;
+            }
+            h1{
+                text-align: center;
+                color: whitesmoke;
+                text-shadow: 0px 0px 5px goldenrod;
+            }
+            #inner-cont{
+                width: 400px;
+                height: 400px;
+                margin: auto;
+            }
+            p{
+                font-size: 12px;
+                text-align: center;
+                margin: auto;
+                color: whitesmoke;
+            }
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                color: goldenrod;
+            }
+            form{
+                margin-top: 10px;
+            }
+            #status{
+                font-weight: bold;
+            }
+           
+            
+        </style>
+
+        <!-- Below is the JavaScript -->
+
+        <script lang="JavaScript" type="text/JavaScript">
+         //   alert("Hello user, you are about to check your BMI. Kindly fill-in every necessary details. Thank you!");
+            function bmi() {
+                var name = document.getElementById("user-name").value;
+                var w = document.getElementById("weight").value;
+                var h = document.getElementById("height").value;
+                var heightSquare = h * h;
+                var bmiresult = w/heightSquare;
+                document.getElementById("result").value = bmiresult;
+
+                if(bmiresult < 18.5){
+                    document.getElementById("status").value = name + "," + " You are underweight!";
+                    if (document.getElementById("status").value = name + "," + " You are underweight!") {
+                        document.getElementById("status").style.color = "red";
+                    }
+                }else if ((bmiresult >= 18.5) && (bmiresult <= 24.9)){
+                    document.getElementById("status").value = name + "," + " Your weight is normal, please remain fit.";
+                    if (document.getElementById("status").value = name + "," + " Your weight is normal, please remain fit."){
+                        document.getElementById("status").style.color = "green"; 
+                    }
+                }else if ((bmiresult > 24.9) && (bmiresult <= 30)) {
+                    document.getElementById("status").value = name + "," + " You are overweight!";
+                    if (document.getElementById("status").value = name + "," + " You are overweight!"){
+                        document.getElementById("status").style.color = "brown"; 
+                    }
+                }else if (bmiresult > 30 ) {
+                    document.getElementById("status").value = name + "," + " You are Obese!";
+                    if (document.getElementById("status").value = name + "," + " You are Obese!") {
+                        document.getElementById("status").style.color = "hotpink";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>BMI CALCULATOR</h1>
+        <div id="main-cont">
+            <div id="inner-cont">
+                <form id="bmi-form">
+                    <input type="text" placeholder="Your Full Name" id="user-name"><br>
+                    <input type="number" placeholder="Weight(Kg) e.g 75" id="weight"><br>
+                    <input type="number" placeholder="Height(m) e.g 1.75" id="height"><br>
+                    <button type="button" id="button" onclick="bmi()">Calculate</button><br>
+                    <input type="text" placeholder="BMI result" id="result"><br><br>
+                    <textarea type="text" placeholder="Medical Advice based on the BMI result" id="status"></textarea>
+                </form>
+            </div>
+            <div id="credit">
+                <p>This was designed and developed by <a href="#">Spwebtech</a> on the 19th of July 2022</p>
+            </div>
+        </div>
+    </body>
+</html>
